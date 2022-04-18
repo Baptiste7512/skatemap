@@ -1,0 +1,7 @@
+<div class="window">
+  <%= link_to skatespot, class:"card-skatespot" do %>
+      <%= cl_image_tag skatespot.photo.key %>
+      <h2><%= skatespot.name %></h2>
+      <p>📍<%= skatespot.address %></p>
+    <% end %>
+</div>
