@@ -1,6 +1,3 @@
-First App after Wagon Bootcamp
-Skate-Map is app for skateur want skate in the city, 
-he use Mapbox for detected the multiple spot around user
-and every user can speak with the community
+Skatemap is an application created for skateboarders and all urban sports practitioners, the first challenge is to create an interactive map where people can add spots / skateparks
+after this, the objective will be to build a user table, in order to be able to create communities around skateparks and allow them to communicate
 
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
