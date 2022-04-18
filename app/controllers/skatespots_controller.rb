@@ -6,7 +6,8 @@ class SkatespotsController < ApplicationController
     @markers = @skatespots.geocoded.map do |skatespot|
       {
         lat: skatespot.latitude,
-        lng: skatespot.longitude
+        lng: skatespot.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {skatespot:skatespot }),
       }
     end
   end
