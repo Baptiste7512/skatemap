@@ -30,6 +30,12 @@ class SkatespotsController < ApplicationController
     end
   end
 
+  def destroy
+    @skatespot = Skatespot.find(params[:id])
+    @skatespot.destroy
+    redirect_to '/skatespots/new', :notice => "Your skatespot has been deleted"
+  end
+
   private
 
   def skatespot_params

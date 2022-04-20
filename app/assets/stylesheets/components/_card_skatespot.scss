@@ -1,10 +1,46 @@
 .card-skatespot{
   text-decoration: none;
   color: black;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  &:hover{
+    color: black;
+  }
 
   img{
     height: 200px;
     width: 200px;
     object-fit: cover;
+  }
+}
+.card-show {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  p {
+    font-size: 12px;
+    opacity: .7;
+    margin: 0;
+  }
+
+  .card-trip-infos {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
   }
 }
