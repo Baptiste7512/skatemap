@@ -1,6 +1,12 @@
-<%= simple_form_for(@skatespot) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :address %>
-  <%= f.input :photo, as: :file %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <%= simple_form_for(@skatespot) do |f| %>
+        <%= f.input :name, placeholder: "Rodney Mullen" %>
+        <%= f.input :address, placeholder: "10 rue du soldat bidule chouette, Paris" %>
+        <%= f.input :photo, as: :file %>
+        <%= f.button :submit, class: "btn btn-info" %>
+      <% end %>
+    </div>
+  </div>
+</div>

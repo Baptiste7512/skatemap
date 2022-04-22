@@ -1,5 +1,5 @@
 class SkatespotsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: :index
   def index
     @skatespots = Skatespot.all
 
@@ -14,6 +14,7 @@ class SkatespotsController < ApplicationController
 
   def show
     @skatespot = Skatespot.find(params[:id])
+    @conversation = Conversation.new
   end
 
   def new
@@ -28,6 +29,12 @@ class SkatespotsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @skatespot = Skatespot.find(params[:id])
+    @skatespot.destroy
+    redirect_to '/skatespots/new', :notice => "Your skatespot has been deleted"
   end
 
   private

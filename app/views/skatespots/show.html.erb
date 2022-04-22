@@ -1,4 +1,28 @@
 <div class="container">
-  <%= @skatespot.name %>
-  <%= cl_image_tag @skatespot.photo.key %>
+  <div class="card-skatespot">
+    <div class="card-show">
+      <%= cl_image_tag @skatespot.photo.key %>
+      <div class="card-skatespot-infos">
+        <div>
+          <h1><%= @skatespot.name %></h1>
+          <h2><%= @skatespot.address %></h2>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= simple_form_for([ @skatespot, @conversation ]) do |f| %>
+    <%= f.input :content, as: :text %>
+    <%= f.button :submit,"send message", class: "btn btn-primary" %>
+  <% end %>
+  <div id="conversations">
+  <% if @skatespot.conversations.blank? %>
+    Be the first message in a conversation for <%= @skatespot.name %>
+  <% else %>
+    <% @skatespot.conversations.each do |conversation| %>
+      <p>-<%= conversation.content %></p>
+    <% end %>
+  <% end %>
+</div>
+  <%# <%= link_to "Delete", skatespot_path(@skatespot), :confirm => "Are you sure?", :method => :delete %>
 </div>
