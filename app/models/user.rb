@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :username, presence: true, uniqueness: true
   validates :username, length: { minimum: 5}
+  has_one_attached :photo
 end

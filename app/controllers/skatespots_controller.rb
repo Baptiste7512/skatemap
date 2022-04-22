@@ -14,6 +14,7 @@ class SkatespotsController < ApplicationController
 
   def show
     @skatespot = Skatespot.find(params[:id])
+    @conversation = Conversation.new
   end
 
   def new
