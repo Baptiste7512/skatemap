@@ -1,9 +1,13 @@
 class ConversationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :create
+
   def create
-    @skatespot = Skatespot.find(params[:skatespot_id])
     @conversation = Conversation.new(conversation_params)
+    @skatespot = Skatespot.find(params[:skatespot_id])
     @conversation.skatespot = @skatespot
-    if @conversation.save
+    @conversation.user = current_user
+
+    if @conversation.save!
       redirect_to skatespot_path(@skatespot)
     else
       render 'skatespots/show'

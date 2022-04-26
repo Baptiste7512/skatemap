@@ -4,8 +4,8 @@
       <%= cl_image_tag @skatespot.photo.key %>
       <div class="card-skatespot-infos">
         <div>
-          <h1><%= @skatespot.name %></h1>
-          <h2><%= @skatespot.address %></h2>
+          <h1 class="m-3"><%= @skatespot.name %></h1>
+          <h2 class="m-3"><%= @skatespot.address %></h2>
           <p></p>
         </div>
       </div>
@@ -19,10 +19,11 @@
   <% if @skatespot.conversations.blank? %>
     Be the first message in a conversation for <%= @skatespot.name %>
   <% else %>
-    <% @skatespot.conversations.each do |conversation| %>
-      <p>-<%= conversation.content %></p>
+    <% @skatespot.conversations.reverse_each do |conversation| %>
+      <p><%= conversation.user.username %> - <%= conversation.content %></p>
     <% end %>
   <% end %>
 </div>
   <%# <%= link_to "Delete", skatespot_path(@skatespot), :confirm => "Are you sure?", :method => :delete %>
 </div>
+
