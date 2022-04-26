@@ -7,7 +7,7 @@ class SkatespotsController < ApplicationController
       {
         lat: skatespot.latitude,
         lng: skatespot.longitude,
-        info_window: render_to_string(partial: "info_window", locals: {skatespot:skatespot }),
+        info_window: render_to_string(partial: "info_window", locals: { skatespot: skatespot }),
       }
     end
   end
@@ -15,6 +15,11 @@ class SkatespotsController < ApplicationController
   def show
     @skatespot = Skatespot.find(params[:id])
     @conversation = Conversation.new
+  end
+
+  def geolocation
+    current_user.update(latitude: params[:latitude])
+    current_user.update(longitude: params[:longitude])
   end
 
   def new
@@ -42,4 +47,6 @@ class SkatespotsController < ApplicationController
   def skatespot_params
     params.require(:skatespot).permit(:name, :address, :photo)
   end
+
+
 end
