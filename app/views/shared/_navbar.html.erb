@@ -10,7 +10,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
+        <% if user_signed_in? && current_user.photo.attached?%>
           <li class="nav-item active">
             <%= link_to "Home", root_path, class: "nav-link" %>
           </li>
@@ -25,6 +25,21 @@
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
+        <% elsif user_signed_in? %>
+          <li class="nav-item active">
+              <%= link_to "Home", root_path, class: "nav-link" %>
+            </li>
+            <%# <li class="nav-item">
+              <%= link_to "Messages", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <%= image_tag "https://upload.wikimedia.org/wikipedia/fr/b/b1/Spitfire_Logo.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "profile", dashboard_path, class: "dropdown-item" %>
+                <%= link_to "Add your spot", new_skatespot_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+              </div>
+            </li>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -34,4 +49,4 @@
     </div>
   </div>
 </div>
-<%= console %>
+
