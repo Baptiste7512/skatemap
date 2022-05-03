@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  root to: 'pages#home'
   devise_for :users
-  root to: 'skatespots#index'
   resources :skatespots, only: [:index, :show, :create, :new, :edit] do
     resources :conversations, only: :create
   end
