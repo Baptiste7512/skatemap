@@ -17,12 +17,19 @@
   <% end %>
   <div id="conversations">
   <% if @skatespot.conversations.blank? %>
-    Be the first message in a conversation for <%= @skatespot.name %>
+    Lache le premier msg sur <%= @skatespot.name %>
   <% else %>
     <% @skatespot.conversations.reverse_each do |conversation| %>
-      <p><%= conversation.user.username %> - <%= conversation.content %></p>
+      <% if conversation.user == current_user %>
+        <div class="message-user">
+          <p><%= conversation.user.username %> - <%= conversation.content %></p>
+        </div>
+      <% else %>
+        <div class="message-other">
+          <p><%= conversation.user.username %> - <%= conversation.content %></p>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>
-  <%= link_to "Delete", skatespot_path(@skatespot), :confirm => "Are you sure?", :method => :delete %>
-</div>
+  <%#   <%= link_to "Delete", skatespot_path(@skatespot), :confirm => "Are you sure?", :method => :delete %>
