@@ -8,9 +8,10 @@
      <i class="fa fa-bars fa-lg"></i></label>
     <div class="menu">
       <ul class='list'>
-        <li><a href="<%= dashboard_path%>"><%= cl_image_tag current_user.photo.key, class:"avatar" %></a></li>
-        <li><a href= <% skatespots_path %>>All spot</a></li>
-        <li><a href="">Add your spot</a></li>
+        <li><a href=<%= dashboard_path%>><%= cl_image_tag current_user.photo.key, class:"avatar" %></a></li>
+        <li><a href= <%= skatespots_path %>>All spot</a></li>
+        <li><a href=<%= new_skatespot_path %>>Add your spot</a></li>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         <li></li>
       </ul>
     </div>
