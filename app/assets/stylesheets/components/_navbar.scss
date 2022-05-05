@@ -1,12 +1,52 @@
-.navbar-lewagon {
+.navbar{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
-  background: white;
+  background-color: whitesmoke;
+  padding: 15px;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.navbar a{
+  text-decoration: none;
+  color: inherit;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.title{
+  margin-left: 50px;
+  font-family: 'Sedgwick Ave Display';
+  font-size: 30px;
+  text-shadow: 1px 1px 1px rgb(163, 163, 163);
+}
+
+.list{
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+#toggler, .navbar label{
+  display: none;
+}
+
+@media screen and (max-width: 600px){
+  .menu{
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+  }
+  .list{
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .navbar label{
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  #toggler:checked ~ .menu{
+    max-height: 100%;
+  }
 }

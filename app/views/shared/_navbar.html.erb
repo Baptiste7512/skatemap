@@ -1,51 +1,27 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to root_path, class: "navbar-brand" do %>
-      <h1>Skatemap</h1>
-    <% end %>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? && current_user.photo.attached?%>
-          <li class="nav-item active">
-            <%= link_to "Home", root_path, class: "nav-link" %>
-          </li>
-          <%# <li class="nav-item">
-            <%= link_to "Messages", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "profile", dashboard_path, class: "dropdown-item" %>
-              <%= link_to "Add your spot", new_skatespot_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            </div>
-          </li>
-        <% elsif user_signed_in? %>
-          <li class="nav-item active">
-              <%= link_to "Home", root_path, class: "nav-link" %>
-            </li>
-            <%# <li class="nav-item">
-              <%= link_to "Messages", "#", class: "nav-link" %>
-            </li>
-            <li class="nav-item dropdown">
-              <%= image_tag "https://upload.wikimedia.org/wikipedia/fr/b/b1/Spitfire_Logo.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "profile", dashboard_path, class: "dropdown-item" %>
-                <%= link_to "Add your spot", new_skatespot_path, class: "dropdown-item" %>
-                <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              </div>
-            </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
+<div class="navbar">
+  <div class="title">
+    <a href="<%= root_path %>">Skatemap</a>
+  </div>
+  <input type="checkbox" id="toggler">
+  <label for="toggler">
+  <% if user_signed_in? && current_user.photo.attached? %>
+     <i class="fa fa-bars fa-lg"></i></label>
+    <div class="menu">
+      <ul class='list'>
+        <li><a href="<%= dashboard_path%>"><%= cl_image_tag current_user.photo.key, class:"avatar" %></a></li>
+        <li><a href= <% skatespots_path %>>All spot</a></li>
+        <li><a href="">Add your spot</a></li>
+        <li></li>
       </ul>
     </div>
+  <% else %>
+    <i class="fa fa-bars fa-lg"></i></label>
+    <div class="menu">
+      <ul class='list'>
+        <li><a href="<%= skatespots_path%>">All spot</a></li>
+        <li><%= link_to "Login", new_user_session_path%></li>
+      </ul>
   </div>
+  <% end %>
+
 </div>
