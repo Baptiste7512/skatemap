@@ -46,5 +46,44 @@
 }
 
 .message-user{
-  color: green;
+  text-align: end;
+  margin-top: 30px;
+  h2{
+    font-family: $body-font;
+    font-size: 14px;
+    display: inline;
+    background: white;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-shadow: 1px 1px 2px black;
+  }
+
+  p{
+    font-size: 8px;
+  }
+}
+
+.message-other{
+  text-align: start;
+  margin-top: 30px;
+  h2{
+    font-family: $body-font;
+    font-size: 14px;
+    display: inline;
+    background: white;
+    border: 0.3px rgb(156, 156, 156) solid;
+    box-shadow: 1px 1px 2px black;
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  p{
+    font-size: 8px;
+  }
 }

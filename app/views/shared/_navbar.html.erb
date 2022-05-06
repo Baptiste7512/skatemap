@@ -15,6 +15,17 @@
         <li></li>
       </ul>
     </div>
+  <% elsif user_signed_in? %>
+    <i class="fa fa-bars fa-lg"></i></label>
+    <div class="menu">
+      <ul class='list'>
+        <li><a href=<%= dashboard_path%>>Dashboard</a></li>
+        <li><a href= <%= skatespots_path %>>All spot</a></li>
+        <li><a href=<%= new_skatespot_path %>>Add your spot</a></li>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        <li></li>
+      </ul>
+    </div>
   <% else %>
     <i class="fa fa-bars fa-lg"></i></label>
     <div class="menu">

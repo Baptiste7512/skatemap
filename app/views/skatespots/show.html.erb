@@ -11,25 +11,30 @@
       </div>
     </div>
   </div>
-  <%= simple_form_for([ @skatespot, @conversation ]) do |f| %>
-    <%= f.input :content, as: :text %>
-    <%= f.button :submit,"send message", class: "btn btn-primary" %>
-  <% end %>
   <div id="conversations">
   <% if @skatespot.conversations.blank? %>
     Lache le premier msg sur <%= @skatespot.name %>
   <% else %>
-    <% @skatespot.conversations.reverse_each do |conversation| %>
+    <% @skatespot.conversations.last(6).each do |conversation| %>
       <% if conversation.user == current_user %>
         <div class="message-user">
-          <p><%= conversation.user.username %> - <%= conversation.content %></p>
+          <h2>
+            <%= conversation.content %>
+          </h2>
         </div>
       <% else %>
         <div class="message-other">
-          <p><%= conversation.user.username %> - <%= conversation.content %></p>
+          <h2>
+            <%= conversation.content %>-
+            <%= conversation.user.username %>
+          </h2>
         </div>
       <% end %>
     <% end %>
+  <% end %>
+  <%= simple_form_for([ @skatespot, @conversation ]) do |f| %>
+    <%= f.input :content, as: :text %>
+    <%= f.button :submit,"send message", class: "btn btn-primary" %>
   <% end %>
 </div>
   <%#   <%= link_to "Delete", skatespot_path(@skatespot), :confirm => "Are you sure?", :method => :delete %>
