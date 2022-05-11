@@ -1,8 +1,34 @@
-<div style="width: 50vh; height: 100vh;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-
-</div>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto mt-3">
+      <div class="rounded" style="width: 100vh; height: 100vh;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
+    <div class="col-md-auto mt-3">
+      <div id="carouselExampleIndicators" class="carousel slide " data-bs-ride="carousel">
+        <div class="carousel-inner m-2 ">
+          <% @skatespots.each_with_index do |skatespot, i| %>
+            <div class="carousel-item <%= "active" if i == 0 %>">
+              <a href=<%= skatespot_path(skatespot) %>>
+                <%= cl_image_tag skatespot.photo.key, class:"d-block img-fluid img-show" %>
+              </a>
+            </div>
+          <% end %>
+        </div>
+        <% if @skatespots.count > 1 %>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <div>
-</div>
