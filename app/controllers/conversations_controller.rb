@@ -7,10 +7,14 @@ class ConversationsController < ApplicationController
     @conversation.skatespot = @skatespot
     @conversation.user = current_user
 
-    if @conversation.save!
-      redirect_to skatespot_path(@skatespot)
-    else
-      render 'skatespots/show'
+    respond_to do |format|
+      if @conversation.save!
+        format.html { redirect_to skatespot_path(@skatespot) }
+        format.json
+      else
+        format.html { render "skatespots/show" }
+        format.json
+      end
     end
   end
 
