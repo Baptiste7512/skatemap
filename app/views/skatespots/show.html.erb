@@ -12,36 +12,35 @@
     </div>
   </div>
   <div id="conversations">
+    <% if @skatespot.conversations.blank? %>
+      Lache le premier msg sur <%= @skatespot.name %>
+    <% else %>
+      <div class="scroll-container">
 
-    <div data-controller="insert-in-list">
-      <div data-insert-in-list-target="items">
-        <% if @skatespot.conversations.blank? %>
-          Lache le premier msg sur <%= @skatespot.name %>
-        <% else %>
-          <% @skatespot.conversations.last(6).each do |conversation| %>
+          <% @skatespot.conversations.each do |conversation| %>
             <% if conversation.user == current_user %>
               <div class="message-user">
-                <h2>
+                <h2 id="conversation-<%= conversation.id %>">
                   <%= conversation.content %>
                 </h2>
               </div>
             <% else %>
               <div class="message-other">
-                <h2>
+                <h2 id="conversation-<%= conversation.id %>">
                   <%= conversation.content %>-
                   <%= conversation.user.username %>
                 </h2>
               </div>
             <% end %>
           <% end %>
-        <% end %>
+
       </div>
-      <div class="fixed-bottom form">
-        <%= simple_form_for([ @skatespot, @conversation ], data: { insert_in_list_target: "form", action: "submit->insert-in-list#send"}) do |f| %>
-          <%= f.input :content, as: :text %>
-          <%= f.button :submit,"send message", class: "btn btn-primary" %>
-        <% end %>
-      </div>
+    <% end %>
+    <div class="form">
+      <%= simple_form_for([ @skatespot, @conversation ]) do |f| %>
+        <%= f.input :content, as: :text %>
+        <%= f.button :submit,"send message", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
   <%#   <%= link_to "Delete", skatespot_path(@skatespot), :confirm => "Are you sure?", :method => :delete %>
