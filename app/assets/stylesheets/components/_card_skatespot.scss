@@ -50,6 +50,12 @@
   scroll-behavior: smooth;
   height: 40vh;
   scrollbar-color: #330867 #F5F5F5;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.25rem;
+  margin: 0 auto 1rem;
 }
 
 .scroll-container::-webkit-scrollbar {
@@ -71,47 +77,126 @@
   background-image: linear-gradient(to top, #5e73e7 0%, #b490ca 100%);
 }
 
-.message-user{
-  text-align: end;
-  margin: 30px 10px 10px 0;
-  size: 6in;
-  h2{
-    font-family: $body-font;
-    font-size: 14px;
-    display: inline;
-    background: white;
-    border-radius: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-    box-shadow: 1px 1px 2px black;
-  }
-
-  p{
-    font-size: 8px;
-  }
+.conversations p {
+  border-radius: 1.15rem;
+  line-height: 1.25;
+  max-width: 400;
+  padding: 0.5rem .875rem;
+  position: relative;
+  word-wrap: break-word;
 }
 
-.message-other{
-  text-align: start;
-  margin-top: 30px;
-  h2{
-    font-family: $body-font;
-    font-size: 14px;
-    display: inline;
-    background: white;
-    border: 0.3px rgb(156, 156, 156) solid;
-    box-shadow: 1px 1px 2px black;
-    border-radius: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  p{
-    font-size: 8px;
-  }
+.conversations p::before,
+.conversations p::after {
+  bottom: -0.1rem;
+  content: "";
+  height: 1rem;
+  position: absolute;
 }
 
+.message-user {
+  align-self: flex-end;
+  background-color: #248bf5;
+  color: #fff;
+  border-radius: 15px;
+  max-width: 400px;
+}
+
+.message-user::before {
+  border-bottom-left-radius: 0.8rem 0.7rem;
+  border-right: 1rem solid #248bf5;
+  right: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+.message-user::after {
+  background-color: #fff;
+  border-bottom-left-radius: 0.5rem;
+  right: -40px;
+  transform:translate(-30px, -2px);
+  width: 3%;
+}
+
+p[class^="message-"] {
+  margin: 0.5rem 0;
+  width: fit-content;
+}
+
+.message-user ~ .message-user {
+  margin: 0.25rem 0 0;
+}
+
+.message-user ~ .message-user:not(:last-child) {
+  margin: 0.25rem 0 0;
+}
+
+.message-user ~ .message-user:last-child {
+  margin-bottom: 0.5rem;
+}
+
+.message-other {
+  align-items: flex-start;
+  background-color: #e5e5ea;
+  color: #000;
+}
+
+.message-other:before {
+  border-bottom-right-radius: 0.8rem 0.7rem;
+  border-left: 1rem solid #e5e5ea;
+  left: -0.35rem;
+  transform: translate(0, -0.1rem);
+}
+
+p.message-other::after {
+  background-color: #fff;
+  border-bottom-right-radius: 0.5rem;
+  left: 20px;
+  transform: translate(-30px, -2px);
+  width: 10px;
+}
+
+p[class^="message-"].emoji {
+  background: none;
+  font-size: 2.5rem;
+}
+
+p[class^="from-"].emoji::before {
+  content: none;
+}
+
+.no-tail::before {
+  display: none;
+}
+
+.margin-b_none {
+  margin-bottom: 0 !important;
+}
+
+.margin-b_one {
+  margin-bottom: 1rem !important;
+}
+
+.margin-t_one {
+  margin-top: 1rem !important;
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    margin: 0 0.5rem;
+  }
+
+  .container {
+    padding: 0.5rem;
+  }
+
+  .conversations {
+    font-size: 1.05rem;
+    margin: 0 auto 1rem;
+    max-width: 400px;
+    padding: 0.25rem 0.875rem;
+  }
+
+  .conversations p {
+    margin: 0.5rem 0;
+  }
+}

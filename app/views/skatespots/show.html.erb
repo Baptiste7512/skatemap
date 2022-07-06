@@ -20,16 +20,16 @@
           <% @skatespot.conversations.each do |conversation| %>
             <% if conversation.user == current_user %>
               <div class="message-user">
-                <h2 id="conversation-<%= conversation.id %>">
+                <p id="conversation-<%= conversation.id %>">
                   <%= conversation.content %>
-                </h2>
+                </p>
               </div>
             <% else %>
               <div class="message-other">
-                <h2 id="conversation-<%= conversation.id %>">
+                <p id="conversation-<%= conversation.id %>">
                   <%= conversation.content %>-
                   <%= conversation.user.username %>
-                </h2>
+                </p>
               </div>
             <% end %>
           <% end %>
