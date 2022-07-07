@@ -21,25 +21,35 @@
             <% if conversation.user == current_user %>
               <div class="message-user">
                 <p id="conversation-<%= conversation.id %>">
-                  <%= conversation.content %>
+                  <% if conversation.photo.attached? %>
+                    <%= conversation.content %>
+                    <%= cl_image_tag conversation.photo.key %>
+                  <% else %>
+                    <%= conversation.content %>
+                  <% end %>
                 </p>
               </div>
             <% else %>
               <div class="message-other">
                 <p id="conversation-<%= conversation.id %>">
-                  <%= conversation.content %>-
+                  <% if conversation.photo.attached? %>
+                    <%= conversation.content %>
+                    <%= cl_image_tag conversation.photo.key %>
+                  <% else %>
+                    <%= conversation.content %>
+                  <% end %>
                   <%= conversation.user.username %>
                 </p>
               </div>
             <% end %>
           <% end %>
-
       </div>
     <% end %>
-    <div class="form">
+    <div class="form mb-5">
       <%= simple_form_for([ @skatespot, @conversation ]) do |f| %>
         <%= f.input :content, as: :text %>
-        <%= f.button :submit,"send message", class: "btn btn-primary" %>
+        <input class="btn btn-primary" type="photo" value="photo" name="photo">
+        <%= f.button :submit,"Envoyer", class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
