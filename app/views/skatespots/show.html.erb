@@ -45,12 +45,16 @@
           <% end %>
       </div>
     <% end %>
-    <div class="form mb-5">
-      <%= simple_form_for([ @skatespot, @conversation ]) do |f| %>
-        <%= f.input :content, as: :text %>
-        <input class="btn btn-primary" type="photo" value="photo" name="photo">
-        <%= f.button :submit,"Envoyer", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+      <div class="form mb-5">
+        <%= simple_form_for([ @skatespot, @conversation ]) do |f| %>
+          <div class="button-form">
+            <%= f.input :content, as: :text %>
+            <span class="file-wrapper">
+              <span class="button"> <i class="fas fa-camera"></i> <%= f.input :photo %></span>
+            </span>
+            <%= f.button :submit,"Envoyer", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+      </div>
   </div>
   <%#   <%= link_to "Delete", skatespot_path(@skatespot), :confirm => "Are you sure?", :method => :delete %>

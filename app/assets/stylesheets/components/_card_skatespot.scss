@@ -203,6 +203,44 @@ p[class^="from-"].emoji::before {
   }
 }
 
+.button-form{
+  margin-top: 0;
+}
+.form {
+  margin-top: 0;
+}
 .form-label{
   display: none;
+}
+
+.file-wrapper {
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+.file-wrapper input {
+  cursor: pointer;
+
+  height: 100%;
+  filter: alpha(opacity=1);
+  -moz-opacity: 0.01;
+  opacity: 0.01;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-left:120px;
+}
+.file-wrapper .button {
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Georgia, sans-serif;
+  font-size:1.2em;
+  text-align: right;
+  border : none;
+  height:21px;
+  width:216px;
+  padding-top: 4px;
+  padding-right: 4px;
 }
