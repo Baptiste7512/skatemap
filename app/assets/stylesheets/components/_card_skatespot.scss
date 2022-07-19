@@ -70,16 +70,21 @@
   background-image: linear-gradient(to top, #5e73e7 0%, #b490ca 100%);
 }
 
-.conversations p {
+#conversations{
+  min-width: 50%;
+}
+
+#conversations p {
   border-radius: 1.15rem;
   line-height: 1.25;
   padding: 0.5rem .875rem;
   position: relative;
   word-wrap: break-word;
+  margin: 10px 10px 10px 0;
 }
 
-.conversations p::before,
-.conversations p::after {
+#conversations p::before,
+#conversations p::after {
   bottom: -0.1rem;
   content: "";
   height: 1rem;
@@ -205,9 +210,28 @@ p[class^="from-"].emoji::before {
 
 .button-form{
   margin-top: 0;
+  display: flex;
+  justify-content: flex-end;
+  .conversation_content{
+    width: 100vh;
+    height: auto;
+  }
+  .button-column{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100px;
+    max-width: 150px;
+    .btn{
+      border: 1px solid black;
+      max-width: 100px;
+    }
+  }
 }
 .form {
   margin-top: 0;
+  width: 70vh;
 }
 .form-label{
   display: none;

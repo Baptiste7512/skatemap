@@ -45,14 +45,19 @@
           <% end %>
       </div>
     <% end %>
-      <div class="form mb-5">
+      <div class="form">
         <%= simple_form_for([ @skatespot, @conversation ]) do |f| %>
           <div class="button-form">
             <%= f.input :content, as: :text %>
-            <span class="file-wrapper">
-              <span class="button"> <i class="fas fa-camera"></i> <%= f.input :photo %></span>
-            </span>
-            <%= f.button :submit,"Envoyer", class: "btn btn-primary" %>
+            <div class='button-column'>
+              <span class="file-wrapper">
+                <span class="button", style="width: 20px">
+                  <i class="fas fa-camera"></i>
+                  <%= f.input :photo %>
+                </span>
+              </span>
+              <%= f.button :submit,"Envoyer" %>
+            </div>
           </div>
         <% end %>
       </div>
