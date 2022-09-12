@@ -1,6 +1,5 @@
 .navbar{
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   background-color: whitesmoke;
@@ -10,8 +9,12 @@
 .navbar a{
   text-decoration: none;
   color: inherit;
+
 }
 
+.navbar a:hover{
+    color: rgb(185, 48, 48);
+  }
 .title{
   margin-left: 50px;
   font-family: 'Sedgwick Ave Display';

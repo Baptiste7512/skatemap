@@ -1,19 +1,49 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12">
-      <div class="header">
-        <video class="header-video" muted autoplay loop>
-          <source src="<%= video_path("background.mp4") %>" type="video/mp4">
-        </video>
-        <div class="d-flex">
-          <div class="button">
-            <%= link_to 'Look the map', skatespots_path %>
-          </div>
-          <div class="button">
-            <%= link_to 'add your spot', new_skatespot_path %>
-          </div>
-        </div>
+
+<div id='banner'>
+  <img src="https://res.cloudinary.com/baptistev/image/upload/v1662639968/P1060849_ne2vwe.jpg" alt="">
+</div>
+<div id='presentation'>
+  <h1><u>Présentation</u></h1>
+  <h3>
+    Bercy zoo est une association de skate ce trouvant au skate park de Bercy à Paris 12</br>
+    Cette association propose des cours de skate ouvert à tous</br>
+    ainsi que des évènements
+  </h3>
+</div>
+<div id='card'>
+  <div class="row justify-content-around">
+    <div class="col-4">
+      <div class="asso">
+        <a href="#"><i class="fas fa-users"></i></a>
       </div>
     </div>
+    <div class="col-4">
+      <div class='skatemap'>
+        <%= link_to skatespots_path do %>
+          <i class="fas fa-map"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="actualité">
+        <a href="#"><i class="fas fa-file-alt"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="footer">
+  <div class="footer-links">
+    <a href="https://www.instagram.com/bercy_zoo/?hl=fr"><i class="fab fa-instagram"></i></a>
+  </div>
+  <div class='mail' data-controller='mail'>
+    <form action="sendMail();">
+     mail
+    </form>
+  </div>
+  <div class="footer-copyright">
+    Bercy zoo © 2022
   </div>
 </div>

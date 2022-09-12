@@ -1,6 +1,6 @@
 <div class="navbar">
   <div class="title">
-    <a href="<%= root_path %>">Skatemap</a>
+    <a href="<%= root_path %>">Bercy Zoo</a>
   </div>
   <input type="checkbox" id="toggler">
   <label for="toggler">
@@ -9,8 +9,8 @@
     <div class="menu">
       <ul class='list'>
         <li><a href=<%= dashboard_path%>><%= cl_image_tag current_user.photo.key, class:"avatar" %></a></li>
-        <li><a href= <%= skatespots_path %>>All spot</a></li>
-        <li><a href=<%= new_skatespot_path %>>Add your spot</a></li>
+        <li><a href= <%= skatespots_path %>>Spots</a></li>
+        <li><a href=<%= new_skatespot_path %>>Ajoute un spot</a></li>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         <li></li>
       </ul>
@@ -19,9 +19,9 @@
     <i class="fa fa-bars fa-lg"></i></label>
     <div class="menu">
       <ul class='list'>
-        <li><a href=<%= dashboard_path%>>Dashboard</a></li>
-        <li><a href= <%= skatespots_path %>>All spot</a></li>
-        <li><a href=<%= new_skatespot_path %>>Add your spot</a></li>
+        <li><a href=<%= dashboard_path%>>Profil</a></li>
+        <li><a href= <%= skatespots_path %>>Spots</a></li>
+        <li><a href=<%= new_skatespot_path %>>Ajoute un spot</a></li>
         <%= link_to "Log out", destroy_user_session_path, method: :delete %>
         <li></li>
       </ul>
@@ -30,7 +30,7 @@
     <i class="fa fa-bars fa-lg"></i></label>
     <div class="menu">
       <ul class='list'>
-        <li><a href="<%= skatespots_path%>">All spot</a></li>
+        <li><a href="<%= skatespots_path%>">Spots</a></li>
         <li><%= link_to "Login", new_user_session_path%></li>
       </ul>
   </div>
