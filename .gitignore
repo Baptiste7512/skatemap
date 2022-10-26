@@ -45,3 +45,4 @@ yarn-debug.log*
 .env*
 public/assets
 public/assets
+.env*
