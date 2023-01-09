@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :conversations, only: :create
   end
   get 'dashboard', to: 'pages#dashboard'
+  resources :articles, only: [:index, :create, :new, :edit, :destroy]
 end

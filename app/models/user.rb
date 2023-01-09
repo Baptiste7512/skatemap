@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # For localisation User
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-  
+
   has_many :conversations
   # Validates conditions
   validates :username, length: { minimum: 5 }

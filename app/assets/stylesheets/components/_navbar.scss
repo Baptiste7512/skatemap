@@ -4,20 +4,23 @@
   justify-content: space-between;
   background-color: whitesmoke;
   padding: 15px;
+  img{
+    border-radius: 50%;
+  }
 }
 
 .navbar a{
   text-decoration: none;
   color: inherit;
-
+  &:hover{
+    color: rgb(120, 8, 224);
+  }
 }
 
-.navbar a:hover{
-    color: rgb(185, 48, 48);
-  }
 .title{
-  margin-left: 50px;
   font-family: 'Sedgwick Ave Display';
+  margin-left: auto;
+  margin-right: auto;
   font-size: 30px;
   text-shadow: 1px 1px 1px rgb(163, 163, 163);
 }
@@ -51,5 +54,33 @@
   }
   #toggler:checked ~ .menu{
     max-height: 100%;
+  }
+}
+
+#logo-connect{
+  animation-duration: 4s !important;
+  animation-name: logoblur !important;
+  img{
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 200px !important;
+  }
+}
+
+@keyframes logoblur {
+  from {
+    filter: blur(0);
+  }
+  20%{
+    filter: blur(0);
+  }
+  60% {
+    filter: blur(50px);
+  }
+  to {
+    filter: blur(100px);
   }
 }

@@ -1,4 +1,5 @@
 <div class="navbar">
+  <%= image_tag "logo.png", alt: "Bercy logo", width: 75 %>
   <div class="title">
     <a href="<%= root_path %>">Bercy Zoo</a>
   </div>
@@ -11,8 +12,7 @@
         <li><a href=<%= dashboard_path%>><%= cl_image_tag current_user.photo.key, class:"avatar" %></a></li>
         <li><a href= <%= skatespots_path %>>Spots</a></li>
         <li><a href=<%= new_skatespot_path %>>Ajoute un spot</a></li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        <li></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
   <% elsif user_signed_in? %>
@@ -22,8 +22,7 @@
         <li><a href=<%= dashboard_path%>>Profil</a></li>
         <li><a href= <%= skatespots_path %>>Spots</a></li>
         <li><a href=<%= new_skatespot_path %>>Ajoute un spot</a></li>
-        <%= link_to "Log out", destroy_user_session_path, method: :delete %>
-        <li></li>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
   <% else %>
