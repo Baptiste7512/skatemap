@@ -6,6 +6,7 @@
   padding: 15px;
   img{
     border-radius: 50%;
+    max-width: 50px;
   }
 }
 
@@ -19,8 +20,7 @@
 
 .title{
   font-family: 'Sedgwick Ave Display';
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
   font-size: 30px;
   text-shadow: 1px 1px 1px rgb(163, 163, 163);
 }
